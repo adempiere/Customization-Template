@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================== -->
+<!-- Zk Ajax UI (Web UI) for Custom Project                   -->
+<!-- ======================================================== -->
+
+<project name="ZkWebUI" default="dist" basedir=".">
+	<description>
+	    This buildfile is used to build the Zk WebUI client for a custom
+		project.  The main adempiere project should be identified in the
+		properties.
+  	</description>
+	<!-- set global properties for this build -->
+	<!--<property environment="env"/>-->
+    <property file="../utils_dev/buildCustomization.properties"/>
+	<property name="src.dir" value="${basedir}/WEB-INF/src"/>
+    <property name="build.dir" value="${basedir}/build/WEB-INF/classes"/>
+	<property name="classes.dir" value="${basedir}/WEB-INF/classes"/>
+	<property name="WEBINF.dir" value="${basedir}/WEB-INF"/>
+	<property name="adempiere.dir" value="${adempiere.trunk}/lib"></property>
+	<property name="custom.dir" value="${basedir}/../lib"></property>
+
+	<property name="war.name"	value="webui"/>
+	<property name="compile.debug"       value="true"/>
+	<property name="compile.deprecation" value="false"/>
+	<property name="compile.optimize"    value="true"/>
+
+	<path id="compile.classpath">
+		<pathelement location="${basedir}"/>
+	  	<pathelement location="${basedir}/WEB-INF/classes"/>
+	  	<pathelement location="${basedir}/WEB-INF/src"/>
+
+		<pathelement location="${custom.dir}/../base/build"/>
+		<pathelement location="${custom.dir}/../client/build"/>
+		<pathelement location="${custom.dir}/../JasperReports/build"/>
+        <pathelement location="${adempiere.trunk}/base/build"/>
+        <pathelement location="${adempiere.trunk}/client/build"/>
+        <pathelement location="${adempiere.trunk}/JasperReports/build"/>
+        <pathelement location="${adempiere.trunk}/org.eevolution.manufacturing/build"/>
+	    <fileset dir="${adempiere.trunk}/lib">
+	    	<include name="*.jar"/>
+	    </fileset>
+
+	    <pathelement location="${adempiere.trunk}/tools/lib/servlet-api.jar"/>
+	    <fileset dir="${basedir}/WEB-INF/lib">
+	    	<include name="*.jar"/>
+	    </fileset>
+	</path>
+
+    <target name="cleanclasses" description="delete class directory">
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${classes.dir}">
+                <exclude name="metainfo/**" />          
+            </fileset>
+        </delete>
+    </target>
+
+   <target name="clean" description="delete build class directory">
+        <delete failonerror="false" includeemptydirs="true">
+            <fileset dir="${build.dir}"/>
+        </delete>
+    </target>
+
+	<target name="copy" depends="cleanclasses" description="Create the deployment directory.  Copy all ZK relevant classes from the main project.">
+		<!-- 
+		  Copy all ZK relevant classes from the main Adempiere project to the ${classes.dir} directory.
+		  This will form the basis of the Tomcat deployment.  Custom classes will override these files.
+		  This target only needs to be run once when the custom project is initializied and when the 
+		  main project changes.
+		  
+		  The main project should be built prior to running this target.
+		-->
+	    <mkdir dir="${classes.dir}"/>
+        <copy  todir="${classes.dir}" overwrite="true">
+            <fileset dir="${adempiere.trunk}/zkwebui/WEB-INF/classes">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/zkwebui/WEB-INF/src">
+                <include name="**/*.xml" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/base/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/client/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/JasperReports/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.eevolution.manufacturing/build">
+                <exclude name="zkwebui/**/*.*"/>
+            	<include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.eevolution.manufacturing/build/zkwebui/WEB-INF/classes">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.adempiere.asset/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.eevolution.cashflow/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.eevolution.warehouse/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="WEB-INF/src">
+                <include name="**/*.xml" />
+            </fileset>
+            <fileset dir="WEB-INF/src">
+                <include name="**/*.xml" />
+            </fileset>
+        </copy>
+		
+		<!-- Now build the customization on top of the classes -->
+		<!-- antcall target="compile"/ -->
+		
+	</target>
+
+    <target name="compile" depends="makedir" description="Compile zk customizations">
+        <javac  target="1.7" encoding="UTF-8"
+               srcdir="WEB-INF/src"
+               destdir="${build.dir}"
+               debug="${compile.debug}"
+               deprecation="${compile.deprecation}"
+               optimize="${compile.optimize}">
+            <classpath refid="compile.classpath"/>
+        </javac>
+        <!-- copy all image & sound files from src to the build directory -->
+        <copy todir="${build.dir}">
+             <fileset dir="WEB-INF/src">
+                 <include name="**/images/*"/>
+                 <include name="**/*.gif"/>
+                 <include name="**/*.jpg"/>
+                 <include name="**/*.png"/>
+                 <include name="**/*.wav"/>
+                 <include name="**/*.htm"/>
+                 <include name="**/*.html"/>
+                 <include name="**/*.properties"/>
+                 <exclude name="**/package.html"/>
+             </fileset>
+        </copy>
+    </target>
+
+    <target name="init" description="initialization target">
+        <echo message="=========== Build and add to ${adempiere.zkCustomJarFile}"/>
+        <!-- create the time stamp -->
+        <tstamp/>
+        <!-- create the build directory structure used by compile -->
+        <mkdir dir="${build.dir}"/>
+        <!-- check for the distribution directory -->
+        <available file="${dist.dir}" type="dir" property="dist.dir.exists"/>
+    </target>
+
+    <target name="makedir" depends="init" unless="dist.dir.exists">
+        <!-- create the distribution directory if not available -->
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+
+    <!-- =========================================== -->
+    <!-- Distribution                                -->
+    <!-- =========================================== -->
+    <target name="dist" depends="compile">
+        <!-- put everything from ${build.dir} into customization.jar file -->
+        <jar
+          jarfile="${dist.dir}/${adempiere.zkCustomJarFile}" 
+          basedir="${basedir}/build"
+          update="true">
+        </jar>
+    </target>
+	
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================= -->
+<!-- Build Customization Jars                      -->
+<!-- ============================================= -->
+
+<project name="BuildCustomizations" default="dist" basedir=".">
+    <description>
+        Create cusomization jars.  Expand this file to include other sections
+    	as they are required.
+    </description>
+
+<!-- define properties for this build -->
+	<property file="buildCustomization.properties"/>
+	<property name="src" value="src"/>
+	<property name="build.dir" value="build"/>
+	<target name="init" description="initialization target">
+		<echo message="=========== Build Adempiere Customizations - ${env.ENCODING}"/>
+		<!-- Create the time stamp -->
+		<tstamp/>
+	</target>
+
+	<target name="jar" depends="clean">
+		<!-- add others as required -->
+		<ant inheritAll="false" dir="../base"/>
+		<ant inheritAll="false" dir="../client"/>
+		<ant inheritAll="false" dir="../zkwebui"/>
+	</target>
+
+	<target name="clean" depends="init">
+        <!-- add others as required -->
+		<ant inheritAll="false" dir="../base" target="clean"/>
+		<ant inheritAll="false" dir="../client" target="clean"/>
+		<ant inheritAll="false" dir="../zkwebui" target="clean"/>
+		<delete file="${dist.dir}/${adempiere.customJarFile}"/>
+		<delete file="${dist.dir}/${adempiere.zkCustomJarFile}"/>
+	</target>
+		
+  <target name="dist" depends="jar" description="Deploy the customizations." >
+	<echo message="=========== Install customizations"/>
+	<copy todir="${adempiere.customLibDir}" file="${dist.dir}/${adempiere.customJarFile}" verbose="true"/>
+	<copy todir="${adempiere.zkCustomLibDir}" file="${dist.dir}/${adempiere.zkCustomJarFile}" verbose="true"/>	
+  </target>
+	
+</project>
