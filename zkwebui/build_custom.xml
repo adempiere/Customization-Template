@@ -68,7 +68,13 @@
 		  main project changes.
 		  
 		  The main project should be built prior to running this target.
+		  
+		  The custom project needs to be refreshed before the changes made will be visible to the server.
+		  The refresh can be done in a launch configuration or manually.
 		-->
+        <echo message="=====  Initializing the zkwebui deployment classes =====" />
+        <echo message="The initialization only needs to be performed initally or when the ADempiere" />
+        <echo message="project changes.  Please refresh the custom project when the task is completed." />
 	    <mkdir dir="${classes.dir}"/>
         <copy  todir="${classes.dir}" overwrite="true">
             <fileset dir="${adempiere.trunk}/zkwebui/WEB-INF/classes">
@@ -83,7 +89,13 @@
             <fileset dir="${adempiere.trunk}/client/build">
                 <include name="**/*.class" />
             </fileset>
+            <fileset dir="${adempiere.trunk}/extend/build">
+                <include name="**/*.class" />
+            </fileset>
             <fileset dir="${adempiere.trunk}/JasperReports/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.adempiere.asset/build">
                 <include name="**/*.class" />
             </fileset>
             <fileset dir="${adempiere.trunk}/org.eevolution.manufacturing/build">
@@ -93,13 +105,13 @@
             <fileset dir="${adempiere.trunk}/org.eevolution.manufacturing/build/zkwebui/WEB-INF/classes">
                 <include name="**/*.class" />
             </fileset>
-            <fileset dir="${adempiere.trunk}/org.adempiere.asset/build">
-                <include name="**/*.class" />
-            </fileset>
             <fileset dir="${adempiere.trunk}/org.eevolution.cashflow/build">
                 <include name="**/*.class" />
             </fileset>
             <fileset dir="${adempiere.trunk}/org.eevolution.warehouse/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/tools/build">
                 <include name="**/*.class" />
             </fileset>
             <fileset dir="WEB-INF/src">
