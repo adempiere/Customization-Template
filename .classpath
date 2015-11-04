@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="base/src"/>
 	<classpathentry kind="src" path="client/src"/>
 	<classpathentry kind="src" path="zkwebui/WEB-INF/src"/>
-	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/adempiereTrunk"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/adempiere"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
