@@ -113,6 +113,14 @@
             </fileset>
             <fileset dir="${adempiere.trunk}/tools/build">
                 <include name="**/*.class" />
+                <include name="**/images/*" />
+                <include name="**/*.gif" />
+                <include name="**/*.jpg" />
+                <include name="**/*.wav" />
+                <include name="**/*.htm" />
+                <include name="**/*.html" />
+                <include name="**/*.properties" />
+                <exclude name="**/package.html" />
             </fileset>
             <fileset dir="WEB-INF/src">
                 <include name="**/*.xml" />
@@ -121,7 +129,12 @@
                 <include name="**/*.xml" />
             </fileset>
         </copy>
-		
+        <copy  todir="${classes.dir}" overwrite="true">
+            <fileset dir="${adempiere.trunk}/zkwebui/WEB-INF/classes">
+                <include name="**/*.class" />
+            </fileset>
+        </copy>		
+		<!-- Issue #-->
 		<!-- Now build the customization on top of the classes -->
 		<!-- antcall target="compile"/ -->
 		
