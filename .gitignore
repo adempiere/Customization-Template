@@ -27,7 +27,6 @@ org.adempiere.webservice/dist
 sqlj/sqlj.jar
 webCM/deploy/
 zkwebui/dist/
-zkwebui/WEB-INF/classes/
 build/
 extend/test.properties
 .settings/org.eclipse.ltk.core.refactoring.prefs
