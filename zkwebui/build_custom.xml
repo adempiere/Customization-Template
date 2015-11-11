@@ -88,6 +88,14 @@
             </fileset>
             <fileset dir="${adempiere.trunk}/client/build">
                 <include name="**/*.class" />
+                <include name="**/images/*" />
+                <include name="**/*.gif" />
+                <include name="**/*.jpg" />
+                <include name="**/*.wav" />
+                <include name="**/*.htm" />
+                <include name="**/*.html" />
+                <include name="**/*.properties" />
+                <exclude name="**/package.html" />
             </fileset>
             <fileset dir="${adempiere.trunk}/extend/build">
                 <include name="**/*.class" />
