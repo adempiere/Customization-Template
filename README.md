@@ -103,7 +103,7 @@ of the server. For example:
 Publish the project to the server then, Open the server configuration and set the publishing 
 setting to "Never publish". 
 
-##Testing with the template
+## Testing with the template
 
 With the template setup you should be good to go. You may need to update the build 
 files to adjust to ADempiere versions. If you customize other directories 
@@ -121,7 +121,7 @@ The launcher for the client will run the client as per the main project. Here,
 most changes you make will be hot-swapped into the application which is really
 nice for development.
 
-##Exporting the Customization Jars
+## Exporting the Customization Jars
 
 When your customization is ready, there is a launcher to build the 
 customization jars. The two files customization.jar and zkcustomization.jar 
