@@ -15,10 +15,21 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>de.loskutov.FileSync.FSBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>ADEMPIERE_PROJECT_LOC</name>
+			<value>file:/C:/dev/repos/github/adempiere/adempiere</value>
+		</variable>
+	</variableList>
 </projectDescription>

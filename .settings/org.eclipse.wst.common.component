@@ -1,9 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
 	<wb-module deploy-name="Adempiere_trunk">
         <wb-resource deploy-path="/" source-path="/zkwebui"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/zkwebui/WEB-INF/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/base/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/client/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/zkwebui/WEB-INF/src"/>
+        <dependent-module archiveName="javaee.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/javaee.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jython.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jython.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsp-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jsp-api.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="looks-2.0.4.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/looks-2.0.4.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jpayment.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jpayment.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-5.1.13-bin.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/mysql-connector-java-5.1.13-bin.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jnlp.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jnlp.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="fluent-hc-4.5.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/fluent-hc-4.5.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bsh-2.0b6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/bsh-2.0b6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xercesImpl.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/xercesImpl.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="miglayout-3.7.1-swing.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/miglayout-3.7.1-swing.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="activemq-core-5.7.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/activemq-core-5.7.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jcommon-1.0.18.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jcommon-1.0.18.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jstl.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jstl.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-net-1.4.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/commons-net-1.4.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jfreechart-1.0.15.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jfreechart-1.0.15.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="payflow.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/payflow.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ant-commons-net.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/ant-commons-net.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bsh-engine.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/bsh-engine.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="groovy-engine.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/groovy-engine.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="postgresql.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/postgresql.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ooxml-schemas-1.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/ooxml-schemas-1.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="c3p0-0.9.1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/c3p0-0.9.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xmlbeans-2.6.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/xmlbeans-2.6.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="xjavadoc-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/xjavadoc-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="standard.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/standard.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="iReport.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/JasperReportsTools/lib/iReport.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ant.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/ant.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/commons-collections-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="mail.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/mail.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jython-engine.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jython-engine.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="servlet-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/servlet-api.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jgraph.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/jgraph.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="script-api.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/script-api.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/log4j.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="c3p0-oracle-thin-extras-0.9.1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/c3p0-oracle-thin-extras-0.9.1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ant-launcher.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/ant-launcher.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="iText-2.1.7.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/iText-2.1.7.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="barbecue-1.5-beta1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/barbecue-1.5-beta1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="Verisign.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/tools/lib/Verisign.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-fonts-6.6.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/JasperReportsTools/lib/jasperreports-fonts-6.6.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jasperreports-6.6.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/adempiere/JasperReportsTools/lib/jasperreports-6.6.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
 		<property name="java-output-path" value="build/classes"/>
 		<property name="context-root" value="webui"/>
 	</wb-module>

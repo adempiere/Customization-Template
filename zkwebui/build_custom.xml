@@ -75,6 +75,7 @@
         <echo message="=====  Initializing the zkwebui deployment classes =====" />
         <echo message="The initialization only needs to be performed initally or when the ADempiere" />
         <echo message="project changes.  Please refresh the custom project when the task is completed." />
+		        
 	    <mkdir dir="${classes.dir}"/>
         <copy  todir="${classes.dir}" overwrite="true">
             <fileset dir="${adempiere.trunk}/zkwebui/WEB-INF/classes">
@@ -103,8 +104,22 @@
             <fileset dir="${adempiere.trunk}/JasperReports/build">
                 <include name="**/*.class" />
             </fileset>
+            <fileset dir="${adempiere.trunk}/JasperReportsWebApp/build">
+                <include name="**/*.class" />
+            </fileset>
             <fileset dir="${adempiere.trunk}/org.adempiere.asset/build">
                 <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.adempiere.production/build">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.eevolution.fleet/build">
+                <exclude name="zkwebui/**/*.*"/>
+            	<include name="**/*.class" />
+            </fileset>
+            <fileset dir="${adempiere.trunk}/org.eevolution.freight/build">
+                <exclude name="zkwebui/**/*.*"/>
+            	<include name="**/*.class" />
             </fileset>
             <fileset dir="${adempiere.trunk}/org.eevolution.manufacturing/build">
                 <exclude name="zkwebui/**/*.*"/>
